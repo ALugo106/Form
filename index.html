@@ -133,6 +133,11 @@
             border: 5px solid rgb(127,145,114);
             border-radius: 5%;
         }
+
+        textarea {
+            height: 100px;
+            width: 400px;
+        }
     </style>
 </head>
 <body>
@@ -160,41 +165,38 @@
                         </legend>
                         <div id="aaa">
                             <lable id="fname">First Name</lable>
-                            <input type="text" id="fname" name="firstname" placeholder="First Name">
-                        </div>
-                        <div>
-                            <label id="lname">Last Name</label>
-                            <input type="text" id="lname" name="lastname" placeholder="Last Name">
-                        </div>
-                        <div>
-                            <label id="add">Address</label>
-                            <input type="text" id="" name="address" placeholder="Address">
-                        </div>
-                        <div>
-                            <label id="city">City</label>
-                            <input type="text" id="fname" name="city" placeholder="City">
-                        </div>
+                            <input type="text" id="fname" name="firstname" placeholder="First Name" pattern="^\D*" required>
 
-                        <div>
+                            <br>
+                            <label id="lname">Last Name</label>
+                            <input type="text" id="lname" name="lastname" placeholder="Last Name" pattern="^\D*" required>
+
+                            <br>
+                            <label id="add">Address</label>
+                            <input type="text" id="" name="address" placeholder="Address" pattern="\w+(\s\w+){0,}" required>
+                            <br>
+                            
+                            <label id="city">City</label>
+                            <input type="text" id="fname" name="city" placeholder="City" pattern="^\D*" required>
+                            <br>
+                            
                             <label id="st">State</label>
-                            <input list="op" placeholder="State">
-                            <datalist id="op">
-                                <option value="NM">
-                                <option value="AZ">
-                                <option value="NV">
-                                <option value="CA">
-                            </datalist>
-                        </div>
-                        <div>
+                            <select id="st" >
+                                <option value="NM"> New Mexico </option>
+                                <option value="AZ"> Arizona </option>
+                                <option value="NV"> Nevada </option>
+                                <option value="CA"> California </option>
+                            </select required>
+                            <br>
+                            
                             <label id="zip">ZIP</label>
-                            <input type="text" placeholder="ZIP">
-                        </div>
-                        <div>
+                            <input type="number" placeholder="ZIP" pattern="[0-9]" required>
+                                <br>
                             <label id="ph">Phone</label>
-                            <input type="tel" id="" name="address" placeholder="(111)-111-1111">
+                            <input type="tel" id="" name="address" placeholder="(***)-***-****" pattern="[0-9]{10}">
                         </div>
                     </fieldset>
-                    </form>
+
                 </div>
 
                 <div id="Right">
@@ -203,9 +205,9 @@
                             <fieldset>
                         <legend for="">Special Packaging</legend>
                         <label>Yes</label>
-                        <input type="checkbox">
+                        <input type="radio" name="op" required>
                         <label>No</label>
-                        <input type="checkbox">
+                        <input type="radio" name="op">
                         <br>
                         <label>Pick The Color of the Packaging</label>
                         <input type="color">
@@ -215,9 +217,10 @@
                     </fieldset>
                     <fieldset>
                         <legend>Any Extra Info</legend>
-                        <textarea>Enter Text Here...</textarea>
+                        <textarea placeholder="Enter Text Here..."></textarea>
                     </fieldset>
-                    <input type="submit">
+
+                    <button type="submit">Submit</button>
                         </form>
                     </div>
 
